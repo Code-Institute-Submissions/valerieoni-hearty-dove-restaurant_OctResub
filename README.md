@@ -1,108 +1,61 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Hearty Dove Restaurant
 
-Welcome USER_NAME,
+Hearty Dove Cuisine is a website designed to reduce no-shows by providing a reservation system that allows customers easily make and manage reservations at Hearty Dove Cuisine. It is useful for friends and families who like to dine and socialise out knowing that their reservation is confirmed.
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+![Responsive Mockup](#)
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **September 1, 2021**
+## UX
 
-## Gitpod Reminders
+## Strategy
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+### User Goals
+The two users groups are the:
+- restaurant owner would like to be able to accept online reservations.
+- the customers visiting the restaurants - wants to make a table reservation for a specific date and time.
 
-`python3 -m http.server`
+### User stories
+- Customer's goals:
+  - As a user, I am able to find the information I am looking for with ease.
+  - As a user, I can view the menu the restarant has to offer.
+  - As a user, I can make enquiry from the website by filling out a contact form.
+  - As a user, book reservation at the restaurant's website for a number of people at a specific date and time.
+  - As a user, I can make a reservation as a guest user
+  - As a user, I am prompted to create an account during or after making a reservation so I can manage my reservation
+  - As a user, I can get feedback about my reservation after completing the reservation.
+  - As a user, I can register an account so that i can easily modify or cancel my reservation
+  - As a regsitered user, I can sigin to my account and update my customer details
+  - As a logged in user, I can view my past or upcoming reservations.
 
-A blue button should appear to click: _Make Public_,
+- Admin User's goals:
+ - As an admin user, I can easily login and logout
+ - As an admin user, I can login in order to access the admin dashboard
+ - As an admin user, I can update the menu item from the backend
+ - As an admin user, I can add and update dining hours
+ - As an admin user, I can add or modify a table so that it would be easy to assign customers to tables
+ - As an admin user, I can view list of reservations
+ - As an admin user, I can approve or decline a reservation
+ - As an admin user, I can allocate confirmed reservations to tables so consumers don't keep making bookings
+   when there are no available tables for their party size, date and time.
 
-Another blue button should appear to click: _Open Browser_.
+## Features 
+The following features will be implemented, in order to achieve the user and business goals: 
+- Responsive navigation links and a landing page for the restaurant
+- Reservation form
+- Registration to allow users to register and sign in
+- User's profile that lists previous and upcoming reservations
+- manage reservation page where logged in users can update thier reservation
+- Reservation confirmation via email
+- contact form for making enquiries
+- Admin login and logout
+- updating option on the Admin Dashboard for adding and modifying menu items
+- Reservation mangaement page from the Admin dashboard for assigning tables to a reservations
+- prevent user from double booking
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+The following features are nice to have but would not be included in this release
+- Appointment reminders
+- Push notifications for each booked table
 
-A blue button should appear to click: _Make Public_,
+## Structure
 
-Another blue button should appear to click: _Open Browser_.
-
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
-
-To log into the Heroku toolbelt CLI:
-
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
-
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
-
-------
-
-## Release History
-
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
-
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
-
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
-
-**July 2 2021:** Remove extensions that are not available in Open VSX.
-
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
-
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
-
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
-
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
-
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
-
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
-
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
-
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
-
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
-
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
-
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
-
-------
-
-## FAQ about the uptime script
-
-**Why have you added this script?**
-
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
-
-**How will this affect me?**
-
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
-
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
-
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
-
-**So….?**
-
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
-
-**Can I opt out?**
-
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
-
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
-
-**Anything more?**
-
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
-
----
-
-Happy coding!
+### Skeleton
+[Wireframes for the restaurant website can be viewed here]()
