@@ -37,7 +37,7 @@ The two users groups are the:
  - As an admin user, I can allocate confirmed reservations to tables so consumers don't keep making bookings
    when there are no available tables for their party size, date and time.
 
-## Features 
+## Scope 
 The following features will be implemented, in order to achieve the user and business goals: 
 - Responsive navigation links and a landing page for the restaurant
 - Reservation form
@@ -58,4 +58,7 @@ The following features are nice to have but would not be included in this releas
 ## Structure
 
 ### Skeleton
-[Wireframes for the restaurant website can be viewed here]()
+[Wireframes for the restaurant website can be viewed here](docs/wireframes/frontend.pdf)
+
+### Database 
+[Entity Relationship Diagram](docs/data_model/restaurant_reservation.png)
