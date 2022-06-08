@@ -22,7 +22,7 @@ class Meal(models.Model):
     """
     meal_name = models.CharField(max_length=200, unique=True)
     description = models.CharField(max_length=200)
-    meal_category = models.ForeignKey(MealCategory, on_delete=models.CASCADE)
+    meal_category = models.ForeignKey(MealCategory, on_delete=models.CASCADE, related_name='meal_category')
     dietary_info = models.TextField(blank=True)
     allergy_info = models.TextField(blank=True)
     price = models.FloatField()
