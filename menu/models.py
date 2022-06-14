@@ -26,7 +26,7 @@ class Meal(models.Model):
     dietary_info = models.TextField(blank=True)
     allergy_info = models.TextField(blank=True)
     price = models.FloatField()
-    is_available = models.BooleanField(default=False)
+    is_available = models.BooleanField(default=True)
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
 
