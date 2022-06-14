@@ -44,7 +44,14 @@ class DrinkCategory(models.Model):
     """
     Drink category model
     """
+    DRINK_TYPES = (
+        ('AL', 'Alcoholic drink'),
+        ('NAL', 'Non-alcoholic drink'),
+        ('HOT', 'Hot drink')
+    )
     title = models.CharField(max_length=200, unique=True)
+    drink_type = models.CharField(
+        max_length=3, choices=DRINK_TYPES, default='AL')
     description = models.TextField(blank=True)
 
     def __str__(self):
@@ -56,7 +63,7 @@ class Drink(models.Model):
     Drink model
     """
     drink_name = models.CharField(max_length=200, unique=True)
-    description = models.CharField(max_length=200)
+    description = models.TextField(blank=True)
     drink_category = models.ForeignKey(DrinkCategory, on_delete=models.CASCADE)
     dietary_info = models.TextField(blank=True)
     allergy_info = models.TextField(blank=True)
