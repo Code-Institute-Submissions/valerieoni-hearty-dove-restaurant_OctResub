@@ -13,7 +13,7 @@ class MealCategory(models.Model):
     updated_on = models.DateTimeField(auto_now=True)
 
     class Meta:
-        verbose_name_plural = "meal_categories"
+        verbose_name_plural = "meal categories"
 
     def __str__(self):
         return self.title
@@ -53,6 +53,9 @@ class DrinkCategory(models.Model):
     drink_type = models.CharField(
         max_length=3, choices=DRINK_TYPES, default='AL')
     description = models.TextField(blank=True)
+
+    class Meta:
+        verbose_name_plural = "drink categories"
 
     def __str__(self):
         return self.title
