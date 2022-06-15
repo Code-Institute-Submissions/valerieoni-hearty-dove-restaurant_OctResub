@@ -11,7 +11,7 @@ class MealCategoryAdmin(admin.ModelAdmin):
 @admin.register(Meal)
 class MealAdmin(admin.ModelAdmin):
     list_filter = ('is_available', 'meal_category')
-    search_fields = ['meal_name', 'meal_category']
+    search_fields = ['meal_name', 'meal_category__title']
     list_display = ('meal_name', 'meal_category', 'price', 'is_available', 'updated_on')
 
 
@@ -24,5 +24,5 @@ class DrinkCategoryAdmin(admin.ModelAdmin):
 @admin.register(Drink)
 class DrinkAdmin(admin.ModelAdmin):
     list_filter = ('is_available', 'drink_category')
-    search_fields = ['drink_name', 'drink_category']
+    search_fields = ['drink_name', 'drink_category__title']
     list_display = ('drink_name', 'drink_category', 'price', 'is_available')
