@@ -1,6 +1,7 @@
 from django.contrib import admin
 from .models import MealCategory, Meal, DrinkCategory, Drink
 
+
 @admin.register(MealCategory)
 class MealCategoryAdmin(admin.ModelAdmin):
     list_filter = ('updated_on', 'title')
