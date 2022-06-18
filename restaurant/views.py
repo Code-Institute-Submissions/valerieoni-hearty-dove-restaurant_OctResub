@@ -46,5 +46,4 @@ def contact(request):
         form = ContactForm()
         if 'submitted' in request.GET:
             submitted = True
-
     return render(request, 'restaurant/contact.html', {'form': form, 'submitted': submitted})
