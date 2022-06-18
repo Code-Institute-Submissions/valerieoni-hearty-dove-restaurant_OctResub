@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Source+Sans+Pro:wght@300;400;600&display=swap');
+
+body {
+    background-color: #f5f5ef;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 400;
+    font-size: 1.4rem;
+}
+
+/***********************************************
+    GENERAL ELEMENTS AND REUSABLE CLASSES
+************************************************/
+/* font */
+p {
+    font-size: 1.2rem;
+}
+
+/* background colors */
+.bg-rifle_green {
+    background-color: #474742;
+}
+
+.bg-rifle_green-light {
+    background-color: rgba(71, 71, 66, 0.9);
+}
+
+.text-green {
+    color: #007663;
+}
+
+/***********************************************
+                NAVIGATION
+************************************************/
+.logo-text {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 3rem;
+    color: #474742;
+}
+
+.nav-top li a {
+    color: #007663;
+}
+
+
+/**************************************************
+            HEADER
+**************************************************/
+.header-jumbo {
+    height: 400px;
+    background-image: url("../images/home-bg-image.jpg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    text-align: center;
+    color: #ffffff;
+    background-size: cover;
+}
