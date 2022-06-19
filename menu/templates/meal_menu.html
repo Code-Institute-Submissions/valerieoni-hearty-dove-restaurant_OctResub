@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Menu List </h1>
+<div class="container-fluid">
+ {{ meal_list }}
+
+ {% for cat in meal_list %}
+    {% for meal in cat%}
+      {{ cat.title }}
+  {% endfor %}
+ {% endfor %}
+</div>
+{% endblock%}
