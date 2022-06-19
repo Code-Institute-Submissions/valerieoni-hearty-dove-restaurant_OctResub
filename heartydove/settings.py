@@ -46,9 +46,13 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'cloudinary',
     'django_summernote',
+    'crispy_forms',
+    'phonenumber_field',
     'menu',
     'restaurant',
+    'reservation',
 ]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -69,6 +73,8 @@ EMAIL_PORT = '2525'
 
 
 ROOT_URLCONF = 'heartydove.urls'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 TEMPLATES = [
     {
