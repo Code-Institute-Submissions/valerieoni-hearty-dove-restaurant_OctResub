@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Customer, Table
+from .models import Customer, Table, Reservation
 
 
 @admin.register(Customer)
@@ -11,3 +11,11 @@ class CustomerAdmin(admin.ModelAdmin):
 @admin.register(Table)
 class TableAdmin(admin.ModelAdmin):
     list_display = ('table_name', 'seat_capacity', 'available')
+
+
+@admin.register(Reservation)
+class Reservation(admin.ModelAdmin):
+    list_filter = ('status',)
+    list_display = (
+        'id', 'customer', 'reservation_date', 'party_size',
+        'status')

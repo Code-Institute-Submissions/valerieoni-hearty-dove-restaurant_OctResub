@@ -31,3 +31,26 @@ class Table(models.Model):
     def __str__(self):
         ''' returns table name'''
         return self.table_name
+
+
+class Reservation(models.Model):
+    ''' Reservation object '''
+    STATUS = (
+        ('pending', 'Pending'),
+        ('confirmed', 'Confirmed'),
+        ('cancelled', 'Cancelled')
+    )
+    customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
+    reservation_date = models.DateField()
+    reservation_time = models.TimeField()
+    party_size = models.IntegerField(default=1)
+    special_requirement = models.CharField(max_length=200, blank=True)
+    status = models.CharField(
+        max_length=10, choices=STATUS, default='pending')
+    table = models.ForeignKey(
+        Table, on_delete=models.CASCADE, blank=True, null=True)
+    created_on = models.DateTimeField(auto_now_add=True)
+    last_modified = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return str(self.id)
