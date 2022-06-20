@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <h2>Make a Reservation</h1>
+    {{ reservation_form | crispy}}
+
+    <input type="submit" class="btn btn-success" value="Send">
+ 
+{% endblock%}
