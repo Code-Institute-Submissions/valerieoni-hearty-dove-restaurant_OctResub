@@ -8,8 +8,8 @@ class ReservationRequest(View):
     ''' returns reservation form '''
 
     def get(self, request, *args, **kwargs):
-        reservation_form = ReservationForm()
+        form_class = ReservationForm()
         template_name = 'reservation/reservation_request.html'
 
         return render(request, template_name, {
-            'reservation_form': reservation_form})
+            'form_class': form_class})
