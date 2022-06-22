@@ -1,5 +1,6 @@
 from django.contrib import admin
-from .models import MealCategory, Meal, DrinkCategory, Drink
+from .models.meals import Meal, Category as MealCategory
+from .models.drinks import Drink, DrinkCategory
 
 
 @admin.register(MealCategory)
@@ -10,9 +11,10 @@ class MealCategoryAdmin(admin.ModelAdmin):
 
 @admin.register(Meal)
 class MealAdmin(admin.ModelAdmin):
-    list_filter = ('is_available', 'meal_category')
-    search_fields = ['meal_name', 'meal_category__title']
-    list_display = ('meal_name', 'meal_category', 'price', 'is_available', 'updated_on')
+    list_filter = ('is_available', 'category')
+    search_fields = ['meal_name', 'category__title']
+    list_display = ('meal_name', 'category', 'price',
+                    'is_available', 'updated_on')
 
 
 @admin.register(DrinkCategory)
