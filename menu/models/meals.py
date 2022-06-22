@@ -30,7 +30,7 @@ class Meal(models.Model):
     meal_name = models.CharField(max_length=200, unique=True)
     description = models.CharField(max_length=200)
     category = models.ForeignKey(
-        Category, on_delete=models.CASCADE)
+        Category, on_delete=models.CASCADE, related_name='meals')
     dietary_info = models.TextField(blank=True)
     allergy_info = models.TextField(blank=True)
     price = models.FloatField()

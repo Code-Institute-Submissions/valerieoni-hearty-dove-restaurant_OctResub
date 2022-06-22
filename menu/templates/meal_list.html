@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Menu List </h1>
+<div class="container-fluid">
+{{ meal_list }}
+ {% for category in meal_list %}
+ {{ category }}
+   {% for items in category %}
+     {{ items.price }}
+   {% endfor %}
+ {% endfor %}
+
+ {{ meal_list.Breakfast.dietary_info }}
+</div>
+{% endblock%}
