@@ -1,16 +1,21 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>Menu List </h1>
-<div class="container-fluid">
-{{ meal_list }}
- {% for category in meal_list %}
- {{ category }}
-   {% for items in category %}
-     {{ items.price }}
-   {% endfor %}
- {% endfor %}
 
- {{ meal_list.Breakfast.dietary_info }}
-</div>
+  <h1>Menu List </h1>
+  {% for category in meal_list.categories %}
+  <div class="card">
+    <div class="card-body"> 
+       <h5 class="card-title">{{category.title }} - {{category.availability}}</h5>
+        {% for meal in category.meals.all %}
+        <h6 class="card-subtitle mb-2">
+          {{ meal.meal_name }} 
+          <span class="badge badge-secondary">£{{ meal.price }}</span>
+        </h6>
+        <p class="card-text">{{ meal.description}}</p> 
+        {% endfor %}
+    </div>
+  </div>
+  {% endfor %}
+
 {% endblock%}
