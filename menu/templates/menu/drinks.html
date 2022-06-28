@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+  <h1>Drinks</h1>
+  {% for category in drinks_list.categories %}
+  <div class="card">
+    <div class="card-body"> 
+       <h5 class="card-title">{{ category.title |upper }}</h5>
+       <hr />
+        {% for drink in category.drinks.all %}
+        <h6 class="card-subtitle mb-2">
+          {{ drink }} 
+          <span class="price">£{{ drink.price }}</span>
+        </h6>
+        <p class="card-text">{{ drink.description}}</p> 
+        {% endfor %}
+    </div>
+  </div>
+
+  {% endfor %}
+
+{% endblock%}
