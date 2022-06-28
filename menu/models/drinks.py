@@ -27,7 +27,8 @@ class Drink(models.Model):
     """
     drink_name = models.CharField(max_length=200, unique=True)
     description = models.TextField(blank=True)
-    drink_category = models.ForeignKey(DrinkCategory, on_delete=models.CASCADE)
+    drink_category = models.ForeignKey(
+        DrinkCategory, on_delete=models.CASCADE, related_name='drinks')
     dietary_info = models.TextField(blank=True)
     allergy_info = models.TextField(blank=True)
     price = models.FloatField()
