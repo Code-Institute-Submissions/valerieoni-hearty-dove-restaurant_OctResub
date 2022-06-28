@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.core.mail import BadHeaderError, send_mail
+from django.contrib import messages
 from .forms import ContactForm
 
 
@@ -34,16 +35,16 @@ def contact(request):
     Renders contact us page.
     if POST request, validates form,
     sends an enquiry email and return feedback to user.
-    Otherwise, if GET request create a blank ContactForm. 
+    Otherwise, if GET request create a blank ContactForm.
     """
-    submitted = False
     if request.method == 'POST':
         form = ContactForm(request.POST)
         if form.is_valid():
-            submitted = email_enquiry(form)
-            return HttpResponseRedirect(f'/contact?submitted={submitted}')
+            email_enquiry(form)
+            message = "Your message was succesfully submitted"
+            messages.add_message(
+                request, messages.SUCCESS, message)
+            return HttpResponseRedirect('/contact')
     else:
         form = ContactForm()
-        if 'submitted' in request.GET:
-            submitted = True
-    return render(request, 'restaurant/contact.html', {'form': form, 'submitted': submitted})
+    return render(request, 'restaurant/contact.html', {'form': form})
