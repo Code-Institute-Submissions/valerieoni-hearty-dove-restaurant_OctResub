@@ -3,16 +3,12 @@
 {% block content %}
 {% load crispy_forms_tags %}
 <h2>Contact Us</h1>
-<div class="container-fluid">
-    {% if submitted %}
-    <p>Your message was succesfully submitted</p>
-    {% else %}
-    <form method="post">
-        {{ form | crispy}}
-        {% csrf_token %}
-       
-        <input type="submit" class="btn btn-success" value="Send">
-    </form>
-    {% endif %}
-</div>
-{% endblock%}
+    <div class="container-fluid">
+        <form method="post">
+            {{ form | crispy}}
+            {% csrf_token %}
+
+            <input type="submit" class="btn btn-success" value="Send">
+        </form>
+    </div>
+    {% endblock %}
