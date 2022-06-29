@@ -1,16 +1,18 @@
 {% extends "base.html" %}
 
+
+{% block header_content %}
+    <h2>Reservation Request</h2>
+{% endblock %}
+
 {% block content %}
 
 {% load crispy_forms_tags %}
-<div class="container">
-    <h2>Request a Reservation</h2>
     <div class="row">
         <div class="col-sm">
             <h3>Reserving Online</h3>
             <p>
-                Please keep in mind that your table reservation will be confirmed via email once you have completed the
-                reservation form.
+                Please keep in mind that your that an email will be sent to you after your reservation is confirmed.
             </p>
             <p>
                 Reservations will be kept for a maximum of 10 minutes after the stated arrival time. If you are running
@@ -25,12 +27,11 @@
                 {{ customer_form | crispy }}
 
                 {{ reservation_form | crispy }}
-                <p>&nbsp;</p>
                 <input type="submit" class="btn btn-success" value="Send Request">
 
             </form>
         </div>
     </div>
-</div>
+
 
 {% endblock %}
