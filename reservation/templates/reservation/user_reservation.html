@@ -26,12 +26,6 @@
                 {{ upcoming_reservation.reservation_date }} {{ upcoming_reservation.reservation_time }}
                 <span class="badge badge-secondary">{{ upcoming_reservation.status }}</span>
             </td>
-            <td>
-                <form method="POST">
-                    {% csrf_token %}
-                    <a href="{% url 'delete_reservation' upcoming_reservation.id %}"><button type="button" class="btn btn-sm btn-danger">Cancel</button></a>
-                </form>
-                </td>
           </tr>
           {% endfor %}
         </tbody>

@@ -62,3 +62,84 @@ The following features are nice to have but would not be included in this releas
 
 ### Database 
 [Entity Relationship Diagram](docs/data_model/restaurant_reservation.png)
+
+
+## Features
+### [list main features of the app - home page, menu, table, reservation...]
+
+## Technologies Used
+- [Django](https://www.djangoproject.com/) - used to build the over project and its apps.
+- [Python](https://www.python.org/) - the core programming language used to write all of the code in this application to make it fully functional.
+- [Bootstrap](https://getbootstrap.com/) - used for creating responsive design.
+- [GitHub](https://github.com/) - used to store code for the project after being pushed.
+- [Git](https://git-scm.com/) - for version control by utilizing the Gitpod terminal to commit to Git and Push to GitHub..
+- [Gitpod](https://www.gitpod.io/) - used as the development environment.
+- [Heroku](https://dashboard.heroku.com/apps) - used to deploy application.
+- [Lucid](https://lucid.app/documents#/dashboard) - used to designing the data model for the project.
+- [Cloudinary](https://cloudinary.com/) - used to store all of my static files and images.
+- [Favicon.io](https://favicon.io/) - used to create favicon's for my website
+- [SQLite](https://www.sqlite.org/index.html) - used as the database on environment other than the production environment.
+- [PostgreSQL](https://www.postgresql.org/) - used for the production database on Heroku.
+- [PhoneNumber](https://pypi.org/project/django-phonenumber-field)
+
+## Testing
+
+### Bugs and fixes
+- deployment error Failed to build backports.zoneinfo: - added a runtime.txt file to specify the Python version
+
+## Deployment
+
+### Clone GitHub repository
+
+1. Log in to GitHub and locate the [GitHub Repository](https://github.com/valerieoni/hearty-dove-restaurant)
+2. Click the `Code` dropdown arrow button just above the list of files.
+3. To clone the repository using HTTPS, under "Clone with HTTPS", copy the link.
+4. Open a terminal on your computer
+5. Change the current working directory to the location where you want the cloned directory to be made.
+6. Type `git clone`, and then paste the URL you copied in Step 3.
+
+```
+$ git clone https://github.com/valerieoni/hearty-dove-restaurant
+```
+
+7. Press Enter. Your local clone will be created.
+8. Create creds.json file in the root directory and save Google credentials in the file
+9. Rename .env.example to .env and update the file with your Nutritionix API ID and KEY values
+
+
+### Heroku
+
+The project was deployed to [Heroku](https://www.heroku.com/).
+
+#### Prerequisites:
+- you forked or copied this project into your repository on GitHub.
+- Heroku requires these files to deploy successfully, they are both in the root folder of the project:
+  - `requirements.txt`
+  - `Procfile`
+- you already have a Heroku account, or you need to register one.
+
+#### Create a Heroku App
+Follow these steps to deploy the app from GitHub to Heroku:
+- Sign in to  Heroku. Signup if you do not have an account.
+- From the Heroku dashboard, click on **Create New App**, give it a platform-unique name
+- choose region, click on **Create app** button
+- Click on **settings** tab
+  - click on **Reveal config vars** button
+  - add environment variables. The required variables are in the env_example.py file
+- Click on the Deploy tab and select GitHub as the deployment method and click **Connect to GitHub** button
+- In the GitHub authorization popup window login into GitHub with your GitHub username and click on `Authorize Heroku` button
+- Type in your repo name and click `search`. It lists your repos. Choose the one and click on `connect` next to it.
+- select the branch you want to deploy from the drop-down menu beneath **choose a branch to deploy**
+- either enable automatic deployment on every push to the chosen branch or stick to manual deployment
+- for the manual deploy, click on **Deploy branch** button and when the deployment is complete, click on **View** button to start the program
+
+## Credits
+During the process of building this project, I used a number of online resources to help me resolve challenges:
+- [configuring database for different environment](https://stackoverflow.com/questions/47579644/django-configuring-different-databases)
+- [fix for backports.zoneinfo error](https://django.fun/qa/325508/)
+- [specifying a Python runtime](https://devcenter.heroku.com/articles/python-runtimes)
+- [types of drinks](https://en.wikipedia.org/wiki/Drink)
+- [styling django forms](https://www.youtube.com/watch?v=6-XXvUENY_8)
+
+## Acknowledgements
+I would like to thank my mentor, Narender Singh for his continuous support and feedback.
