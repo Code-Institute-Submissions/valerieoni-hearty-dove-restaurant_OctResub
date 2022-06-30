@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container col-md-10 mx-auto">
+    <div class="row">
+        {{ customer }}
+       <hr> 
+    </div>
+
+    {% if upcoming_reservations.count > 0 %}
+<div class="col-md-8 mx-auto table-responsive">
+    <h4>Reservations</h4>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col"># of people</th>
+            <th scope="col">Date</th>
+            <th scope="col"> </th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for upcoming_reservation in upcoming_reservations %}
+          <tr>
+            <td>{{ upcoming_reservation.party_size }}</td>
+            <td>
+                {{ upcoming_reservation.reservation_date }} {{ upcoming_reservation.reservation_time }}
+                <span class="badge badge-secondary">{{ upcoming_reservation.status }}</span>
+            </td>
+            <td>
+                <form method="POST">
+                    {% csrf_token %}
+                    <a href="{% url 'delete_reservation' upcoming_reservation.id %}"><button type="button" class="btn btn-sm btn-danger">Cancel</button></a>
+                </form>
+                </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+  </div>
+{% endif %}
+
+
+{% if past_reservations.count > 0 %}
+<div class="col-md-8 mx-auto table-responsive">
+    <table class="table">
+        <caption>Past Reservations</caption>
+        <thead>
+          <tr>
+            <th scope="col"># of people</th>
+            <th scope="col">Date</th>
+            <th scope="col">Status</th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for past_reservation in past_reservations %}
+          <tr>
+            <td>{{ past_reservation.party_size }}</td>
+            <td>{{ past_reservation.reservation_date }} {{ past_reservation.reservation_time }}</td>
+            <td><span class="badge badge-secondary">{{ past_reservation.status }}</span></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+  </div>
+{% endif %}
+
+</div>
+
+{% endblock %}

@@ -33,6 +33,8 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 if os.environ.get("APP_ENV") == "development":
     DEBUG = True
 
+X_FRAME_OPTIONS = 'SAMEORIGIN'
+
 ALLOWED_HOSTS = ['hearty-dove.herokuapp.com', 'localhost']
 
 
