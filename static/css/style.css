@@ -10,47 +10,7 @@ body {
 /***********************************************
     GENERAL ELEMENTS AND REUSABLE CLASSES
 ************************************************/
-/* font */
-p {
-    font-size: 1.2rem;
-}
-
-/* background colors */
-.bg-rifle_green {
-    background-color: #474742;
-}
-
-.bg-rifle_green-light {
-    background-color: rgba(71, 71, 66, 0.9);
-}
-
-.text-green {
-    color: #007663;
-}
-
-/***********************************************
-                NAVIGATION
-************************************************/
-.logo-text {
-    font-family: 'Bebas Neue', cursive;
-    font-size: 3rem;
-    color: #474742;
-}
-
-.nav-top li a {
-    color: #007663;
-}
-
-
-/**************************************************
-            HEADER
-**************************************************/
-.header-jumbo {
-    height: 400px;
-    background-image: url("../images/home-bg-image.jpg");
+.masthead {
+    background-image: url(../images/alex-haney-CAhjZmVk5H4-unsplash.jpg);
     background-repeat: no-repeat;
-    background-position: center center;
-    text-align: center;
-    color: #ffffff;
-    background-size: cover;
 }
