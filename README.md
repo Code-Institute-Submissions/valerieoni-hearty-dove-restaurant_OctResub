@@ -60,6 +60,8 @@ The following features are nice to have but would not be included in this releas
 ### Skeleton
 [Wireframes for the restaurant website can be viewed here](docs/wireframes/frontend.pdf)
 
+[User story board](https://github.com/valerieoni/hearty-dove-restaurant/projects/1)
+
 ### Database 
 [Entity Relationship Diagram](docs/data_model/restaurant_reservation.png)
 
