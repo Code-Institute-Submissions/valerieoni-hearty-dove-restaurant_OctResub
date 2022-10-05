@@ -3,7 +3,7 @@ from django.db import models
 
 class Category(models.Model):
     """
-    Meal category model
+    schema for meal category model
     """
     title = models.CharField(max_length=200, unique=True)
     description = models.TextField(blank=True)
@@ -25,7 +25,7 @@ class Category(models.Model):
 
 class Meal(models.Model):
     """
-    Meal model
+    Schema for Meal model
     """
     meal_name = models.CharField(max_length=200, unique=True)
     description = models.CharField(max_length=200)
