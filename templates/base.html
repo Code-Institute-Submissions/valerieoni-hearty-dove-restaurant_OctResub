@@ -48,9 +48,15 @@
                 </ul>
                 <ul class="nav navbar-nav ml-auto">
                     {% if user.is_authenticated %}
+                    {% if not user.is_superuser %}
                     <li class="nav-item">
                         <a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'user_reservation' %}">Manage Reservation</a>
                     </li>
+                    {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'admin:index' %}">Admin</a>
+                    </li>
+                    {% endif %}
                     <li class="nav-item">
                         <a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'account_logout' %}">Logout <span class="fas fa-sign-out-alt"></span></a>
                     </li>

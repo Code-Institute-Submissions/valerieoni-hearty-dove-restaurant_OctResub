@@ -18,10 +18,10 @@ def email_enquiry(form):
     customer_email = form_data['customer_email']
     message = form_data['message']
     subject = (f'Customer Enquiry from {customer_name}')
-    from_email = settings.EMAIL_HOST_USER
+    recipient_email = settings.EMAIL_HOST_USER
 
     try:
-        send_mail(subject, message, from_email, [customer_email])
+        send_mail(subject, message, customer_email, [recipient_email])
     except BadHeaderError:
         return False
     return True
