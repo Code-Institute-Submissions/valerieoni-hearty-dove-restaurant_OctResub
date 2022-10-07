@@ -1,7 +1,9 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.core.mail import BadHeaderError, send_mail
+from django.conf import settings
 from django.contrib import messages
+
 from .forms import ContactForm
 
 
@@ -16,10 +18,10 @@ def email_enquiry(form):
     customer_email = form_data['customer_email']
     message = form_data['message']
     subject = (f'Customer Enquiry from {customer_name}')
-    recipients = ['valeriewil@yahoo.com']
+    from_email = settings.EMAIL_HOST_USER
 
     try:
-        send_mail(subject, message, customer_email, recipients)
+        send_mail(subject, message, from_email, [customer_email])
     except BadHeaderError:
         return False
     return True
@@ -48,3 +50,13 @@ def contact(request):
     else:
         form = ContactForm()
     return render(request, 'restaurant/contact.html', {'form': form})
+
+
+def error_404(request, exception):
+    """  page for error 404 """
+    return render(request, '404.html', status=404)
+
+
+def error_500(request):
+    """ display page for error 500 """
+    return render(request, '500.html', status=500)
