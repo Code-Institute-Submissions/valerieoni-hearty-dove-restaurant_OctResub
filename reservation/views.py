@@ -109,7 +109,7 @@ class ReservationRequest(View):
             all required fields are filled in"""
 
             messages.add_message(
-                request, messages.SUCCESS, message)
+                request, messages.ERROR, message)
 
         return render(request, self.template_name, {
             'reservation_form': reservation_form,

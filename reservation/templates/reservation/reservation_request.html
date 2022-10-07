@@ -1,5 +1,9 @@
 {% extends "base.html" %}
 
+{% block head_tag %}
+    <!--Date and Time Picker -->
+    <link rel= "stylesheet" href= "https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+{% endblock head_tag %}
 
 {% block header_content %}
     <h2>Reservation Request</h2>
@@ -24,9 +28,9 @@
             <h3>Reservation Form</h3>
             <form method="POST" class="mb-5">
                 {% csrf_token %}
-                {{ customer_form | crispy }}
 
-                {{ reservation_form | crispy }}
+                {% crispy customer_form %}
+                {% crispy reservation_form %}
                 <input type="submit" class="btn btn-success" value="Send Request">
 
             </form>
@@ -35,3 +39,9 @@
 
 
 {% endblock %}
+
+{% block script_tag %}
+     <!--Date Time Picker-->
+     <script type= "text/javascript" src= "https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+{% endblock script_tag %}
+   
