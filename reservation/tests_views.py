@@ -1,35 +1,32 @@
+from django_webtest import WebTest
+from django.urls import reverse
 import datetime
 
-from django.test import TestCase, Client
 
-from .models import Reservation, Customer
+class ReservationRequestTest(WebTest):
+    '''Test make reservation web page'''   
+    def test_page_contains_form(self):
+        '''Test page contains reservation form'''
+        page = self.app.get(reverse('reservation_request'))
+        self.assertEqual(len(page.forms), 1)
 
+    def test_reservation_form_error(self):
+        '''
+        test empty form submission returns field required error
+        '''
+        page = self.app.get(reverse('reservation_request'))
+        page = page.form.submit()
+        self.assertContains(page, "field is required")
 
-class ReservationRequestTest(TestCase):
-    def setup(self):
-        self.client = Client()
-        self.customer = Customer.objects.create(
-            last_name='Test',
-            first_name='User',
-            email='test.user@test.com'
-        )
-        self.reservation_date = datetime.date.today()
-        self.reserve_time = "11:00"
-        self.reservation = Reservation.objects.create(
-            customer=self.customer,
-            reservation_date=self.reservation_date,
-            reservation_time=self.reserve_time,
-            party_size=4
-        )
-
-    def test_request_made_is_not_in_the_past(self):
-        """
-        check that a reservation date
-        is not in the past
-        """
-
-    def test_cannot_book_when_no_table_available(self):
-        """
-        test that a reservation cannot be made
-        when there is not enough tables 
-        """
+    def test_reservation_form_success(self):
+        '''test form submits successfully'''
+        page = self.app.get(reverse('reservation_request'))
+        page = page.form.submit()
+        page.form['last_name'] = 'Test'
+        page.form['first_name'] = 'User'
+        page.form['email'] = 'test.user@test.com'
+        page.form['reservation_date'] = datetime.date.today()
+        page.form['reservation_time'] = '11:00'
+        page.form['party_size'] = 4
+        page = page.form.submit()
+        self.assertEqual(page.status_code, 200)
