@@ -1,4 +1,5 @@
 from django.test import TestCase
+import datetime
 from .forms import CustomerForm, ReservationForm
 
 
@@ -82,3 +83,15 @@ class TestReservationForm(TestCase):
             'special_requirement'
         ]
         self.assertEqual(form.Meta.fields, fields)
+
+    def test_valid_time(self):
+        """
+        Test the first_name field is not empty
+        """
+        form = ReservationForm({
+            'reservation_date': datetime.date.today(),
+            'reservation_time': 'abc',
+            'party_size': 4
+        })
+        self.assertFalse(form.is_valid())
+        self.assertIn('reservation_time', form.errors.keys())
