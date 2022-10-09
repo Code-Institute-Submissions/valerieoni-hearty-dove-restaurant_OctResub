@@ -17,5 +17,7 @@ class TableAdmin(admin.ModelAdmin):
 class Reservation(admin.ModelAdmin):
     list_filter = ('status',)
     list_display = (
-        'id', 'customer', 'reservation_date', 'party_size',
-        'status')
+        'id', 'customer', 'party_size', 'reservation_date',
+        'reservation_time', 'status')
+    actions = ['inform_user']
+    
