@@ -42,13 +42,13 @@ The following features will be implemented, in order to achieve the user and bus
 - Responsive navigation links and a landing page for the restaurant
 - Reservation form
 - Registration to allow users to register and sign in
-- User's profile that lists previous and upcoming reservations
+- User's profile that lists upcoming reservations
 - manage reservation page where logged in users can update thier reservation
 - Reservation confirmation via email
 - contact form for making enquiries
 - Admin login and logout
 - updating option on the Admin Dashboard for adding and modifying menu items
-- Reservation mangaement page from the Admin dashboard for assigning tables to a reservations
+- Reservation management page from the Admin dashboard for assigning tables to a reservations
 - prevent user from double booking
 
 The following features are nice to have but would not be included in this release
@@ -85,11 +85,12 @@ The following features are nice to have but would not be included in this releas
 - [PhoneNumber](https://pypi.org/project/django-phonenumber-field)
 
 ## Testing
-The W3C Markup Validator and W3C CSS Validator was used to validate the site to ensure there were no syntax errors in the project.
-- [W3C Markup Validator Result](docs/W3C_Validation.png)
+The W3C Markup Validator and W3C CSS Validator was used to validate the site to test for and fix syntax errors in the project.
+- [W3C Markup Validator Result](docs/testing/W3C_Validation.png)
+- [Html checker](docs/testing/HTML_checker.png)
 
 ### Automated Testing
-I have test scripts written for the models, views and forms. The test files have been named accordingly so that test written for views are in test_views.py file. Coverage package was used to view how much of the application has been tested. From the report 81% of the app has been tested and the snapshot of the html report can be viewed [here](docs/testing/coverage_report.jpg)
+I have test scripts written for the models, views and forms. The test files have been named accordingly so that test written for views are in test_views.py file. Coverage package was used to view how much of the application has been tested. From the report 81% of the app has been tested and the snapshot of the html report can be viewed [here](docs/testing/coverage_report.jpeg)
 To run the report from the app:
 - from the terminal run `coverage run manage.py test`
 - `coverage report`

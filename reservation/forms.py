@@ -25,7 +25,7 @@ class ReservationForm(forms.ModelForm):
                 Column(Field('party_size', max=6)),
                 Column(Field('reservation_date', placeholder="Enter date",
                              css_class='datepicker')),
-                Column(Field('reservation_time', placeholder="Format: 16:00"))
+                Column(Field('reservation_time'))
             ),
             Row(
                 Column(Field('special_requirement', rows=3))
