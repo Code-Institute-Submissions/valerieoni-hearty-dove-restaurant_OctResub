@@ -2,7 +2,7 @@
 
 Hearty Dove Cuisine is a website designed to reduce no-shows by providing a reservation system that allows customers easily make and manage reservations at Hearty Dove Cuisine. It is useful for friends and families who like to dine and socialise out knowing that their reservation is confirmed.
 
-![Responsive Mockup](#)
+![Live site can be found here](https://hearty-dove.herokuapp.com/)
 
 ## UX
 
@@ -85,6 +85,25 @@ The following features are nice to have but would not be included in this releas
 - [PhoneNumber](https://pypi.org/project/django-phonenumber-field)
 
 ## Testing
+The W3C Markup Validator and W3C CSS Validator was used to validate the site to ensure there were no syntax errors in the project.
+- [W3C Markup Validator Result](docs/W3C_Validation.png)
+
+### Automated Testing
+I have test scripts written for the models, views and forms. The test files have been named accordingly so that test written for views are in test_views.py file. Coverage package was used to view how much of the application has been tested. From the report 81% of the app has been tested and the snapshot of the html report can be viewed [here](docs/testing/coverage_report.jpg)
+To run the report from the app:
+- from the terminal run `coverage run manage.py test`
+- `coverage report`
+- To create and view the html report run `coverage html` This generates htmlcov directory containing index.html file
+  - `coverage html`
+  - `python3 manage.py -m http.server`
+  - click on open browser and click on htmlconv to view the report
+
+To generate your own coverage report from the command line:
+
+1. Install the package using `pip3 install coverage`
+2. Run `coverage run manage.py test`
+3. Then `coverage html` to generate the report
+4. You can view the report in a browser by using the command `python3 -m http.server` and opening the `index.html` file from inside the `htmlcov` folder.
 
 ### Bugs and fixes
 - deployment error Failed to build backports.zoneinfo: - added a runtime.txt file to specify the Python version
@@ -142,6 +161,3 @@ During the process of building this project, I used a number of online resources
 - [specifying a Python runtime](https://devcenter.heroku.com/articles/python-runtimes)
 - [types of drinks](https://en.wikipedia.org/wiki/Drink)
 - [styling django forms](https://www.youtube.com/watch?v=6-XXvUENY_8)
-
-## Acknowledgements
-I would like to thank my mentor, Narender Singh for his continuous support and feedback.

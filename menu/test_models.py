@@ -1,5 +1,6 @@
 from django.test import TestCase
-from .models import MealCategory, Meal, DrinkCategory, Drink
+from .models.meals import Category, Meal
+from .models.drinks import DrinkCategory, Drink
 
 
 class TestMealCategoryModel(TestCase):
@@ -7,7 +8,7 @@ class TestMealCategoryModel(TestCase):
     Test Meal Category model
     """
     def test_meal_category_string_method_returns_title(self):
-        meal_category = MealCategory.objects.create(
+        meal_category = Category.objects.create(
              title='lunch',
              available_from='12:00',
              available_until='17:00'
@@ -20,7 +21,7 @@ class TestMealModel(TestCase):
     Test meal model
     """
     def test_meal_string_returns_meal_name(self):
-        meal_category = MealCategory.objects.create(
+        meal_category = Category.objects.create(
              title='lunch',
              available_from='12:00',
              available_until='17:00'
