@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block header_content %}
+    <h2>Reservation Request</h2>
+{% endblock %}
+
+{% block content %}
+
+{% load crispy_forms_tags %}
+    <div class="row">
+        <div class="col-md-8 col-lg-6 mx-auto">
+            <h3>Update Reservation</h3>
+            <p>
+                Please keep in mind that you reservation will be pending after updating it.
+            </p>
+            <form method="POST" class="mb-8">
+                {% csrf_token %}
+                {% crispy reservation_form %}
+                <input type="hidden" value="{{ reservation.id}}" />
+                <input type="submit" class="btn btn-success" value="Update Reservation">
+            </form>
+        </div>
+    </div>
+
+{% endblock %}

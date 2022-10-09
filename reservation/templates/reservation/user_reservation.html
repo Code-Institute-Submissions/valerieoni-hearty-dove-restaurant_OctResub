@@ -2,62 +2,43 @@
 
 {% block content %}
 <div class="container col-md-10 mx-auto">
-    <div class="row">
-        {{ customer }}
-       <hr> 
+    {% if customer is None %}
+      <div class="row">
+          <p>You have no table reservation. Click <a href="{% url 'reservation_request' %}">Reservation</a> to request a table.</p>
+        <hr> 
+      </div>
+    {% else %}
+    <h4>Manage Reservation</h4>
+    <p>We found {{ upcoming_reservations.count }} upcoming reservations found for {{ customer }}.<br />
+      Please note that updating a confirmed reservation changes the status of your reservation to pending</p>
+    <hr>
+    <div class="row justify-content-center">
+      {% for reservation in upcoming_reservations %}
+      <div class="card col-md-4 col-lg-3 ml-3 mb-5">
+        <div class="card-body">
+          <p class="reserve-title mt-0">Reservation Ref: {{ reservation.id }}</p>
+          <p><span class='reserve-label'>Party of:</span> {{ reservation.party_size }} <br />
+            <span class='reserve-label'>Date:</span> {{ reservation.reservation_date }} <br />
+            <span class='reserve-label'>Time:</span> {{ reservation.reservation_time }}
+          </p>
+            <p>
+              {% if reservation.status == 'pending' %}
+                  You reservation is <span class="badge badge-warning">{{ reservation.status }}</span>
+              {% elif reservation.status == 'confirmed' %}
+                Your reservation is <span class="badge badge-success">{{ reservation.status }}</span>
+              {% else %}
+                <strong>We are sorry, we are unable to reserve a for you table at this time.</strong>
+              {% endif %}
+            </p>
+          <hr />
+        </div>
+        <div class="d-flex justify-content-around mb-5">
+          <a href="{% url 'update_reservation' reservation.id %}" class="btn btn-sm btn-primary">Update</a>
+          <a href="{% url 'reservation_request' %}" class="btn btn-sm btn-danger">Cancel</a>
+        </div>
+      </div>
+      {% endfor %}
     </div>
-
-    {% if upcoming_reservations.count > 0 %}
-<div class="col-md-8 mx-auto table-responsive">
-    <h4>Reservations</h4>
-    <table class="table">
-        <thead>
-          <tr>
-            <th scope="col"># of people</th>
-            <th scope="col">Date</th>
-            <th scope="col"> </th>
-          </tr>
-        </thead>
-        <tbody>
-        {% for upcoming_reservation in upcoming_reservations %}
-          <tr>
-            <td>{{ upcoming_reservation.party_size }}</td>
-            <td>
-                {{ upcoming_reservation.reservation_date }} {{ upcoming_reservation.reservation_time }}
-                <span class="badge badge-secondary">{{ upcoming_reservation.status }}</span>
-            </td>
-          </tr>
-          {% endfor %}
-        </tbody>
-      </table>
   </div>
-{% endif %}
-
-
-{% if past_reservations.count > 0 %}
-<div class="col-md-8 mx-auto table-responsive">
-    <table class="table">
-        <caption>Past Reservations</caption>
-        <thead>
-          <tr>
-            <th scope="col"># of people</th>
-            <th scope="col">Date</th>
-            <th scope="col">Status</th>
-          </tr>
-        </thead>
-        <tbody>
-        {% for past_reservation in past_reservations %}
-          <tr>
-            <td>{{ past_reservation.party_size }}</td>
-            <td>{{ past_reservation.reservation_date }} {{ past_reservation.reservation_time }}</td>
-            <td><span class="badge badge-secondary">{{ past_reservation.status }}</span></td>
-          </tr>
-          {% endfor %}
-        </tbody>
-      </table>
-  </div>
-{% endif %}
-
-</div>
-
+  {% endif %}
 {% endblock %}

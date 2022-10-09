@@ -55,3 +55,9 @@ class CustomerForm(forms.ModelForm):
                 Column(Field('phone', placeholder="Format: +44"))
             )
         )
+
+
+class ManageReservationForm(forms.Form):
+    """Manage reservation form"""
+    customer_name = forms.CharField(max_length=50, label='Last Name')
+    customer_email = forms.EmailField(max_length=100, label='Email Address')
