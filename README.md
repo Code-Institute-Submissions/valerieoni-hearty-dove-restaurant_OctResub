@@ -67,6 +67,7 @@ The following features are nice to have but would not be included in this releas
 
 
 ## Features
+
 ### Navigation
 The site has top naviation links grouped into three: the brand name, the four main links in the middle and the reigstration links to the right.
 **Menus**: Displays the list of menu available.
@@ -106,6 +107,7 @@ A user has to log in to update or cancel thier reservation
 - [SQLite](https://www.sqlite.org/index.html) - used as the database on environment other than the production environment.
 - [PostgreSQL](https://www.postgresql.org/) - used for the production database on Heroku.
 - [PhoneNumber](https://pypi.org/project/django-phonenumber-field)
+- [Temp Mail](https://tempail.com/en/) - to create temporary email when testing
 
 ## Testing
 The W3C Markup Validator and W3C CSS Validator was used to validate the site to test for and fix syntax errors in the project.
@@ -185,3 +187,4 @@ During the process of building this project, I used a number of online resources
 - [specifying a Python runtime](https://devcenter.heroku.com/articles/python-runtimes)
 - [types of drinks](https://en.wikipedia.org/wiki/Drink)
 - [styling django forms](https://www.youtube.com/watch?v=6-XXvUENY_8)
+- [stack overflow](https://stackoverflow.com/questions/18619577/using-django-admin-actions-to-send-bulk-emails)
