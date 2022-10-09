@@ -67,7 +67,30 @@ The following features are nice to have but would not be included in this releas
 
 
 ## Features
-### [list main features of the app - home page, menu, table, reservation...]
+### Navigation
+The site has top naviation links grouped into three: the brand name, the four main links in the middle and the reigstration links to the right.
+**Menus**: Displays the list of menu available.
+
+### Reservations
+The reservation page contains the customer and reservation model forms. When a user makes a reservation the status is set to pending. This is updated by the admin user who also sends reservation status mail to selected customers from the admin page
+
+
+![Reservation Form](docs/features/user_reservation.png)
+
+---
+A user has to log in to update or cancel thier reservation
+
+**Update Reservation**
+![](docs/features/user_update_reservation.png)
+![](docs/features/user_update_reservation_msg.png)
+
+**Cancel Reservation**
+![](docs/features/user_cancel_reservation.png)
+![](docs/features/user_cancel_msg.png)
+
+**Admin Send Email Action**
+![](docs/features/admin_send_mail.png)
+
 
 ## Technologies Used
 - [Django](https://www.djangoproject.com/) - used to build the over project and its apps.
