@@ -34,7 +34,24 @@
         </div>
         <div class="d-flex justify-content-around mb-5">
           <a href="{% url 'update_reservation' reservation.id %}" class="btn btn-sm btn-primary">Update</a>
-          <a href="{% url 'reservation_request' %}" class="btn btn-sm btn-danger">Cancel</a>
+          <a href="#modal-{{ reservation.id }}" class="btn btn-sm btn-danger" data-toggle="modal">Cancel</a>
+          <div id="modal-{{ reservation.id }}" class="modal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                      <h4 class="modal-title">Cancel Reservation</h4>
+                    </div>
+                    <div class="modal-body">
+                      <p>Are you sure you want to cancel the reservation # {{ reservation.id }}?</p>
+                      <p><strong>This action cannot be undone</strong></p>
+                    </div>
+                    <div class="modal-footer">
+                      <a href="{% url 'delete_reservation' reservation.id %}" class="btn btn-danger">Yes Cancel Reservation</a>
+                      <a href="" class="btn btn-success">Changed my mind</a>
+                    </div>
+                </div>
+            </div>
+          </div>
         </div>
       </div>
       {% endfor %}

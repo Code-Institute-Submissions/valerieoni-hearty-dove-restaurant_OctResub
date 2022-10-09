@@ -147,19 +147,36 @@ class ReservationList(View):
         )
 
 
-class ReservationDelete(View):
-    def post(self, request):
+def delete_reservation(request, reservation_id):
+    """ Delete customer reservation """
+    if request.user.is_authenticated:
         current_date = datetime.date.today()
-        customer = get_customer(self, request)
+        user_email = request.user.email
         reservation = get_object_or_404(Reservation.objects.filter(
-            pk=request.id, email=customer.email, reservation_date__gt=current_date))
+            pk=reservation_id))
+        if reservation.customer.email != user_email:
+            messages.add_message(request, messages.ERROR,
+                                "You are not permitted to perform this action")
+            return HttpResponseRedirect(reverse('user_reservation'))
+        if reservation.reservation_date < current_date:
+            messages.add_message(request, messages.ERROR,
+                                "You cannot delete a past reservation")
+            return HttpResponseRedirect(reverse('user_reservation'))
+        if reservation.status == 'declined':
+            messages.add_message(request, messages.ERROR,
+                                "You cannot delete a declined reservation")
+            return HttpResponseRedirect(reverse('user_reservation'))
+
         reservation_date = reservation.reservation_date
         reservation.delete()
         messages.add_message(request, messages.SUCCESS,
-                             f"Reservation for {reservation_date} successfully deleted")
-
+                            f"Reservation { reservation_id } for {reservation_date} successfully cancelled")
+        return HttpResponseRedirect(reverse(
+                    'user_reservation'))
+    else:
         return HttpResponseRedirect(reverse('reservation_request'))
 
+        
 
 class ReservationUpdate(View):
     """ Update customer reservation"""
